@@ -77,7 +77,7 @@ helm install --name lego --namespace kube-ext \
 helm install stable/kubernetes-dashboard --namespace kube-ext --name kube-dash --version 0.5.2 \
   --set rbac.create=true
 # in order to access dashboard do the following on your machine:
-# kubectl port-forward $(kubectl get pods -n kube-ext -l "app=kubernetes-dashboard,release=kube-dash" -o jsonpath="{.items[0].metadata.name}") 9090:9090
+# kubectl port-forward -n kube-ext $(kubectl get pods -n kube-ext -l "app=kubernetes-dashboard,release=kube-dash" -o jsonpath="{.items[0].metadata.name}") 9090:9090
 # (or use the provided utils/k8s/dash.sh script)
 # then open: http://localhost:9090
 
